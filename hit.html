@@ -1,0 +1,28 @@
+<!--
+This code finds the hit count of a website using the HTML5 localStorage object
+-->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function clickCounter() {
+    if(typeof(Storage) !== "undefined") {
+        if (localStorage.clickcount) {
+            localStorage.clickcount = Number(localStorage.clickcount)+1;
+						console.log(localStorage.clickcount);
+        } else {
+            localStorage.clickcount = 1;
+        }
+        document.getElementById("resultVarsha").innerHTML = "You have visited this site " + localStorage.clickcount + " time(s).";
+    } else {
+        document.getElementById("resultVarsha").innerHTML = "Sorry, your browser does not support web storage...";
+    }
+}
+</script>
+</head>
+<body onload="clickCounter()">
+<div id="resultVarsha"></div>
+</body>
+</html>
